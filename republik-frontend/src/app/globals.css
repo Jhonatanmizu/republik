@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafaf7;
+  --bg-tertiary: #f1f1ee;
+  --brand-primary: #f64a33;
+  --brand-primary-light: #fff1ed;
+  --brand-primary-border: #fddbd6;
+  --trust-emerald: #389e0d;
+  --trust-emerald-light: #f0fdf4;
+  --trust-emerald-dark: #237804;
+  --text-primary: #1b2925;
+  --text-secondary: #52615b;
+  --text-muted: #788580;
+  --border-subtle: #e5e7e4;
+  --warning-amber: #d97706;
+  --warning-amber-light: #fef3c7;
+  --surface-taupe: #b8a59e;
+  --surface-beige: #edebd5;
+  --surface-brown: #4f3e38;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-light: var(--brand-primary-light);
+  --color-brand-primary-border: var(--brand-primary-border);
+  --color-trust-emerald: var(--trust-emerald);
+  --color-trust-emerald-light: var(--trust-emerald-light);
+  --color-trust-emerald-dark: var(--trust-emerald-dark);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border-subtle: var(--border-subtle);
+  --color-warning-amber: var(--warning-amber);
+  --color-warning-amber-light: var(--warning-amber-light);
+  --color-surface-taupe: var(--surface-taupe);
+  --color-surface-beige: var(--surface-beige);
+  --color-surface-brown: var(--surface-brown);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
 }
