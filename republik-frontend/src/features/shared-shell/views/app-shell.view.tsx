@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, Suspense, useState } from "react";
 import { APP_ROUTES, GLOBAL_BRAND_TEXT } from "@/constants/routes.constants";
 import { StudentVerificationModal } from "./student-verification-modal.view";
 
@@ -31,7 +31,7 @@ export interface AppShellProps {
     | "AUTH";
 }
 
-export function AppShell({ children, activeSection }: AppShellProps) {
+function AppShellContent({ children, activeSection }: AppShellProps) {
   const pathname = usePathname();
   const [isVerifyModalOpen, setIsVerifyModalOpen] = useState(false);
 
@@ -304,5 +304,13 @@ export function AppShell({ children, activeSection }: AppShellProps) {
         onClose={() => setIsVerifyModalOpen(false)}
       />
     </div>
+  );
+}
+
+export function AppShell(props: AppShellProps) {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-bg-secondary" />}>
+      <AppShellContent {...props} />
+    </Suspense>
   );
 }
